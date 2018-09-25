@@ -21,6 +21,7 @@ public class View {
                 //showProduct(shop);
             } else if (choice == 3){
                 //showPrice(shop);
+                System.out.println("test");
             }
         }
     }
