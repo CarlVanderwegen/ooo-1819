@@ -56,13 +56,14 @@ public class View {
     private boolean addProduct() {
         String title = JOptionPane.showInputDialog("Enter the title:");
         String id = JOptionPane.showInputDialog("Enter the id:");
+        int idint = Integer.parseInt((id));
         String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game):");
         Product p;
 
         if (type.charAt(0) == MOVIE) {
-            p = new Movie(title);
+            p = new Movie(title, idint);
         } else if (type.charAt(0) == GAME){
-            p = new Game(title);
+            p = new Game(title, idint);
         } else {
             JOptionPane.showMessageDialog(null, "wrong type of product.");
             return false;

@@ -2,8 +2,9 @@ package domain;
 
 public class Movie extends Product {
 
-    public Movie(String naam) {
+    public Movie(String naam, int id) {
         setName(naam);
+        setId(id);
     }
 
 
