@@ -1,14 +1,13 @@
 package domain.model;
 
-public class Game extends Product {
+public class CD extends Product {
 
-    public Game(String naam, int id) {
+    public CD (String naam, int id) {
         setName(naam);
         setId(id);
     }
 
-    @Override
     public double getPrice(int d) {
-        return d*3;
+        return 1.5*d;
     }
 }

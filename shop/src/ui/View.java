@@ -1,9 +1,7 @@
 package ui;
 
-import domain.Game;
-import domain.Movie;
-import domain.Product;
-import domain.Shop;
+import domain.model.*;
+import domain.*;
 
 import javax.swing.*;
 
@@ -12,6 +10,7 @@ public class View {
 
     private final char MOVIE = 'M';
     private final char GAME = 'G';
+    private final char CD = 'C';
 
     public View() {
         shop = new Shop();
@@ -36,9 +35,12 @@ public class View {
     private void showPrice() {
         String id = JOptionPane.showInputDialog("Enter the id:");
         int idint = Integer.parseInt(id);
-        Product p = shop.showPrice(idint);
+        Product p = shop.getProductById(idint);
 
-        JOptionPane.showMessageDialog(null,  "price: " + p.getPrice());
+        String daysString = JOptionPane.showInputDialog("Enter the number of days:");
+        int days = Integer.parseInt(daysString);
+
+        JOptionPane.showMessageDialog(null,  "price: " + p.getPrice(days));
 
     }
 
@@ -57,13 +59,15 @@ public class View {
         String title = JOptionPane.showInputDialog("Enter the title:");
         String id = JOptionPane.showInputDialog("Enter the id:");
         int idint = Integer.parseInt((id));
-        String type = JOptionPane.showInputDialog("Enter the type (M for movie/G for game):");
+        String type = JOptionPane.showInputDialog("Enter the type (M:movie/G:game/C:CD):");
         Product p;
 
         if (type.charAt(0) == MOVIE) {
             p = new Movie(title, idint);
         } else if (type.charAt(0) == GAME){
             p = new Game(title, idint);
+        } else if (type.charAt(0) == CD) {
+            p = new CD(title, idint);
         } else {
             JOptionPane.showMessageDialog(null, "wrong type of product.");
             return false;

@@ -1,4 +1,5 @@
 package domain;
+import domain.model.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -25,13 +26,15 @@ public class Shop {
         return null;
     }
 
-    public Product showPrice(int id) {
+    public double showPrice(int id, int days) {
+        Product p;
         for(int i = 0; i < producten.size(); i++){
             if(producten.get(i).getId() == id){
-                return producten.get(i);
+                p =  producten.get(i);
+                return p.getPrice(days);
             }
         }
-        return null;
+        return 0;
     }
 
     /*public void showProduct(int id) {

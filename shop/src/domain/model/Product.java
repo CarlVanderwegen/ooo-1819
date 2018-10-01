@@ -1,39 +1,26 @@
 package domain.model;
 
-public class Product {
-    String title;
-    int id;
-    double prijs;
+public abstract class Product {
+    private String name;
+    private int id;
 
-    public Product(String title, int id, double prijs) {
-        setId(id);
-        setPrijs(prijs);
-        setTitle(title);
+    public String getName() {
+        return this.name;
     }
 
-    public String getTitle() {
-        return title;
+    public void setName (String n) {
+        if (n != null && !n.trim().isEmpty()) {
+            this.name = n;
+        }
     }
 
-    private void setTitle(String title) {
-        this.title = title;
+    public void setId(int i) {
+        this.id = i;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
-    protected double getPrijs() {
-        return prijs;
-    }
-
-    protected void setPrijs(double prijs) {
-        this.prijs = prijs;
-    }
-
-
+    public abstract double getPrice(int days) ;
 }
