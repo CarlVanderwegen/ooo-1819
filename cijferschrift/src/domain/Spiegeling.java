@@ -1,4 +1,4 @@
 package domain;
 
-public class Spiegeling {
+public class Spiegeling implements Geheimschrift {
 }

@@ -1,4 +1,4 @@
 package domain;
 
-public class Caesar {
+public class Caesar implements Geheimschrift {
 }
