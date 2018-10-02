@@ -6,7 +6,14 @@ public class Spiegeling implements Geheimschrift {
     }
 
     public String codeer(String text) {
-        return "";
+        String code = "";
+        for (int i = text.length()-1; i >= 0; i--) {
+            code += text.charAt(i);
+        }
+
+
+
+        return code;
     }
 
     public String decodeer(String code) {
