@@ -11,4 +11,12 @@ public class Cijfercontroller {
     public void setGeheimschrift(Geheimschrift s) {
         this.schrift = s;
     }
+
+    public String codeer(String text) {
+        return schrift.codeer(text);
+    }
+
+    public String decodeer(String code) {
+        return schrift.decodeer(code);
+    }
 }
