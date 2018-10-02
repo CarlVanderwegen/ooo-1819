@@ -1,8 +1,7 @@
 package domain;
 
 public class Caesar implements Geheimschrift {
-
-
+    
     public Caesar() {
 
     }
