@@ -10,9 +10,6 @@ public class Spiegeling implements Geheimschrift {
         for (int i = text.length()-1; i >= 0; i--) {
             code += text.charAt(i);
         }
-
-
-
         return code;
     }
 
