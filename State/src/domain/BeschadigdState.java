@@ -1,6 +1,6 @@
 package domain;
 
-public class BeschadigdState {
+public class BeschadigdState extends State {
 
 
 }

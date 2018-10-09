@@ -1,4 +1,4 @@
 package domain;
 
-public class UitleendbaarState {
+public class UitleendbaarState extends State {
 }

@@ -1,4 +1,4 @@
 package domain;
 
-public class VerwijderdState {
+public class VerwijderdState extends State {
 }
