@@ -8,18 +8,38 @@ public class Caesar implements Geheimschrift {
 
     public String codeer(String text)
     {
-        return algo(text, 7);
+        return algo(text, 13);
     }
 
 
     public String decodeer(String text)
     {
-        return algo(text, -7);
+        return algo(text, 26-13);
     }
 
 
     private String algo (String text, int shift){
+
+        text = text.toLowerCase();
+
         char[] chars = text.toCharArray();
+        for (int i=0; i < text.length(); i++) {
+            char c = chars[i];
+            System.out.println("code: "+ c + "   " + (int)c);
+            if (c <= 122 && c >= 97) {
+                c -= 97;
+                c += shift;
+                c%=26;
+                System.out.println((int)c);
+                c+= 97;
+                chars[i] = c;
+            }
+        }
+        return new String(chars);
+
+
+
+        /*char[] chars = text.toCharArray();
         for (int i=0; i < text.length(); i++)
         {
             char c = chars[i];
@@ -34,6 +54,6 @@ public class Caesar implements Geheimschrift {
                 chars[i] = (char) (x + 32);
             }
         }
-        return new String(chars);
+        return new String(chars);*/
     }
 }

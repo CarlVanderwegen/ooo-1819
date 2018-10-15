@@ -19,19 +19,7 @@ public class CodeerAppFx extends Application {
 
     @Override
     public void start(Stage ps) {
-        cc = new Cijfercontroller(new Caesar());
+        CodeerUIFx ui = new CodeerUIFx(ps);
 
-        ps.setTitle("Geheimschrift App");
-
-        VBox root = new VBox();
-        TextField inputField = new TextField();
-        TextField outfield = new TextField();
-
-
-
-        Scene mainScene = new Scene(root, 550, 400);
-        ps.setScene(mainScene);
-
-        ps.show();
     }
 }

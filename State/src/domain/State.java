@@ -1,6 +1,7 @@
 package domain;
 
 public abstract class State {
+
     public void uitlenen() {
         throw new IllegalArgumentException();
     }
