@@ -7,6 +7,8 @@ import com.sun.javafx.jmx.MXNodeAlgorithmContext;
 import com.sun.javafx.sg.prism.NGNode;
 import domain.Caesar;
 import domain.Cijfercontroller;
+import domain.Geheimschrift;
+import domain.Spiegeling;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +27,11 @@ public class CodeerUIFx {
     private Stage primaryStage;
     private final String CEASAR = "Caesar";
     private final String MIRROR = "Mirror";
+
+    private Geheimschrift caesarScript = new Caesar();
+    private Geheimschrift mirrorScript = new Spiegeling();
+
+    enum mogelijkeScripts {CEASAR, MIRROR}
 
     private TextField inputField;
     private TextField outputfield;
@@ -82,14 +89,26 @@ public class CodeerUIFx {
             }
         });
 
-        /*scriptsbox.setOnAction(new EventHandler<ActionEvent>() {
+        scriptsbox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                event.
+                if (scriptsbox.getValue().equals(CEASAR)) {
+                    cc.setGeheimschrift(caesarScript);
+                } else if (scriptsbox.getValue().equals(MIRROR)) {
+                    cc.setGeheimschrift(mirrorScript);
+                }
+
+                /*switch(scriptsbox.getValue()) {
+                    case "caesar":
+
+                        break;
+
+                    case "mirror":
+
+                        break;
+                }*/
             }
-        });*/
-
-
+        });
         ps.show();
     }
 

@@ -25,12 +25,10 @@ public class Caesar implements Geheimschrift {
         char[] chars = text.toCharArray();
         for (int i=0; i < text.length(); i++) {
             char c = chars[i];
-            System.out.println("code: "+ c + "   " + (int)c);
             if (c <= 122 && c >= 97) {
                 c -= 97;
                 c += shift;
                 c%=26;
-                System.out.println((int)c);
                 c+= 97;
                 chars[i] = c;
             }
