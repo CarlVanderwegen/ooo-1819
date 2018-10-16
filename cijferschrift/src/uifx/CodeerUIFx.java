@@ -98,13 +98,14 @@ public class CodeerUIFx {
                     cc.setGeheimschrift(mirrorScript);
                 }
 
-                /*switch(scriptsbox.getValue()) {
-                    case "caesar":
 
+                /*switch(scriptsbox.getValue().toString()) {
+                    case "Caesar":
+                        System.out.println("caesar");
                         break;
 
-                    case "mirror":
-
+                    case "Mirror":
+                        System.out.println("mirror");
                         break;
                 }*/
             }
