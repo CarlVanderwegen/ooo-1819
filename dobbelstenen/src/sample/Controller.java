@@ -1,10 +1,7 @@
 package sample;
 
-import model.Game;
-import view.PlayerView;
-import view.ScoreView;
-
 public class Controller {
+<<<<<<< HEAD
     public Controller() {
         PlayerView pv3 = new PlayerView(3);
         PlayerView pv2 = new PlayerView(2);
@@ -20,4 +17,6 @@ public class Controller {
 
         game.registerObserver(scoreview);
     }
+=======
+>>>>>>> parent of 84a305d... einde les
 }

@@ -7,11 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.Observer;
-import model.SpelerScores;
 
-public class PlayerView implements Observer {
-	private SpelerScores spelersscores;
+public class PlayerView  {
 	private Stage stage = new Stage();
 	private Scene playerScene;
 	private Label diceLabel; 
@@ -47,12 +44,7 @@ public class PlayerView implements Observer {
 	public void isAanBeurt(boolean aanBeurt){
 		playButton.setDisable(!aanBeurt);		
 	}
-
-	@Override
-	public void update() {
-		spelersscores.getSpeler(spelerNummer);
-	}
-
+	
 	class ThrowDicesHandler implements EventHandler<ActionEvent> {
         @Override
         public void handle(ActionEvent event) {
