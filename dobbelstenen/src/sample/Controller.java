@@ -12,6 +12,8 @@ public class Controller {
         ScoreView scoreview = new ScoreView();
         Game game = new Game();
 
+        pv1.isAanBeurt(true);
+
         game.registerObserver(pv3);
         game.registerObserver(pv2);
         game.registerObserver(pv1);
