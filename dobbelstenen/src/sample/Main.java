@@ -16,8 +16,11 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Controller controller = new Controller();
 
+=======
+>>>>>>> parent of 84a305d... einde les
 =======
 >>>>>>> parent of 84a305d... einde les
     }
