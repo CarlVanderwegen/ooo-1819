@@ -5,10 +5,7 @@ import com.sun.javafx.geom.transform.BaseTransform;
 import com.sun.javafx.jmx.MXNodeAlgorithm;
 import com.sun.javafx.jmx.MXNodeAlgorithmContext;
 import com.sun.javafx.sg.prism.NGNode;
-import domain.Caesar;
-import domain.Cijfercontroller;
-import domain.Geheimschrift;
-import domain.Spiegeling;
+import domain.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,13 +22,15 @@ public class CodeerUIFx {
 
     private Cijfercontroller cc;
     private Stage primaryStage;
-    private final String CEASAR = "Caesar";
-    private final String MIRROR = "Mirror";
+    //private final String CEASAR = "Caesar";
+    //private final String MIRROR = "Mirror";
 
-    private Geheimschrift caesarScript = new Caesar();
-    private Geheimschrift mirrorScript = new Spiegeling();
+    //private Geheimschrift caesarScript = new Caesar();
+    //private Geheimschrift mirrorScript = new Spiegeling();
 
-    enum mogelijkeScripts {CEASAR, MIRROR}
+    //enum mogelijkeScripts {CEASAR, MIRROR}
+
+    private GeheimschriftFactory factory;
 
     private TextField inputField;
     private TextField outputfield;
@@ -49,9 +48,14 @@ public class CodeerUIFx {
         Scene mainScene = new Scene(root, 550, 400);
         ps.setScene(mainScene);
 
-        ObservableList<String> scripts = FXCollections.observableArrayList(this.CEASAR, this.MIRROR);
+        factory = new GeheimschriftFactory();
+
+
+
+        ObservableList<Scripts> scripts = FXCollections.observableArrayList();
+        scripts.addAll(Scripts.values());
         ComboBox scriptsbox = new ComboBox(scripts);
-        scriptsbox.setValue(this.CEASAR);
+        scriptsbox.setValue(Scripts.CAESAR);
         root.getChildren().add(scriptsbox);
 
         inputField = new TextField();
@@ -92,14 +96,13 @@ public class CodeerUIFx {
         scriptsbox.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (scriptsbox.getValue().equals(CEASAR)) {
+                cc.setGeheimschrift(factory.createGeheimschrift(Scripts.valueOf(scriptsbox.getValue().toString())));
+                /*if (scriptsbox.getValue().equals(CEASAR)) {
                     cc.setGeheimschrift(caesarScript);
                 } else if (scriptsbox.getValue().equals(MIRROR)) {
                     cc.setGeheimschrift(mirrorScript);
                 }
-
-
-                /*switch(scriptsbox.getValue().toString()) {
+                switch(scriptsbox.getValue().toString()) {
                     case "Caesar":
                         System.out.println("caesar");
                         break;
